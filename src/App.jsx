@@ -6,6 +6,9 @@ import CardModulo from './components/CardModulo'
 import Clientes from './clientes/page'
 import ListaClientes from './clientes/ListaClientes'
 import CadastroCliente from './clientes/CadastroCliente'
+import Funcionarios from './pages/funcionarios/page'
+import ListaFuncionarios from './pages/funcionarios/ListaFuncionarios'
+import CadastroFuncionario from './pages/funcionarios/CadastroFuncionario'
 
 function App() {
 
@@ -27,7 +30,7 @@ function App() {
       id: 3,
       titulo: "Gerenciamento de Funcionários",
       descricao: "Cadastre e consulte os funcionários da empresa.",
-      rota: "/"
+      rota: "/funcionarios"
     }
 
   ])
@@ -38,31 +41,37 @@ function App() {
         path='/'
         element={
           <div className='aplicacao'>
-          	<main className='conteudo-principal'>
-          	<Cabecalho/>
-            
-          	<h1>Sistema de gestão de Comércio</h1>
-          	<p className='introducao'>
-          		Aplicação desenvolvida nas disciplinas de Desenvolvimento Web III e 
-          		Tópicos de Programação II.
-          	</p>
-          	<section className='modulos'>
-              {modulos.map(modulo => (
-                <CardModulo
-                  key={modulo.id}
-                  titulo={modulo.titulo}
-                  descricao={modulo.descricao}
-                  rota={modulo.rota}
-                />
-              ))}
-          	</section>
-          	</main>
+            <main className='conteudo-principal'>
+              <Cabecalho />
+
+              <h1>Sistema de gestão de Comércio</h1>
+              <p className='introducao'>
+                Aplicação desenvolvida nas disciplinas de Desenvolvimento Web III e
+                Tópicos de Programação II.
+              </p>
+              <section className='modulos'>
+                {modulos.map(modulo => (
+                  <CardModulo
+                    key={modulo.id}
+                    titulo={modulo.titulo}
+                    descricao={modulo.descricao}
+                    rota={modulo.rota}
+                  />
+                ))}
+              </section>
+            </main>
           </div>
         }
       />
-      <Route path='/clientes' element={<Clientes/>} />
-      <Route path='/clientes/listar' element={<ListaClientes/>} />
-      <Route path='/clientes/cadastrar' element={<CadastroCliente/>} />
+
+      <Route path='/clientes' element={<Clientes />} />
+      <Route path='/clientes/listar' element={<ListaClientes />} />
+      <Route path='/clientes/cadastrar' element={<CadastroCliente />} />
+      
+      <Route path='/funcionarios' element={<Funcionarios />} />
+      <Route path='/funcionarios/listar' element={<ListaFuncionarios />} />
+      <Route path='/funcionarios/cadastrar' element={<CadastroFuncionario />} />
+      
     </Routes>
   )
 }
